@@ -50,14 +50,14 @@ class FallingText {
         if ((top - (garbageCollectHeight * matrixTextHeight) > 0) && ($("." + "ftext-" + this.cssClass + "-" + (top - (garbageCollectHeight * matrixTextHeight)) + "-" + left).css("opacity") == 0)) {
             $("." + "ftext-" + this.cssClass + "-" + (top - (garbageCollectHeight * matrixTextHeight)) + "-" + left).remove();
         }
-        this.nextMove += this.moveInterval;
+        this.nextMove = timestamp + this.moveInterval;
         return false;
     }
     changeText(timestamp) {
         let asciiValue = getRndInteger(33, 126);
         let newChar = String.fromCharCode(asciiValue);
         $("." + this.cssClass).text(newChar); // jQuery Function Number 5
-        this.nextTextChange += textChangeInterval;
+        this.nextTextChange = timestamp + textChangeInterval;
     }
 }
 
